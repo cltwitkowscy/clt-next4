@@ -2,11 +2,9 @@
 
 export default function LogoutPage() {
   return (
-    <section className="space-y-4">
+    <main className="p-6 space-y-2">
       <h1 className="text-2xl font-semibold">Wylogowano</h1>
-      <p className="text-sm text-muted-foreground">
-        Zostałeś bezpiecznie wylogowany.
-      </p>
-    </section>
+      <p className="text-sm text-muted-foreground">Do zobaczenia!</p>
+    </main>
   );
 }
