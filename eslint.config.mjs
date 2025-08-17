@@ -65,3 +65,9 @@ export default antfu(
     },
   },
 );
+{
+  "name": "netlify-local-plugins",
+  "version": "1.0.0",
+  "description": "Local Netlify plugins (empty)",
+  "private": true
+}
