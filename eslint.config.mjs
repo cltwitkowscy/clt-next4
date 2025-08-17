@@ -1,3 +1,8 @@
+// eslint.config.mjs
+export default [
+  { ignores: ['netlify.toml', '.netlify/**'] },
+  // …tu zostaw Twoją obecną konfigurację / presety
+]
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import antfu from '@antfu/eslint-config';
