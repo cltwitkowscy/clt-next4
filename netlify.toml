@@ -3,21 +3,19 @@ command = "npm run build"
 publish = ".next"
 functions = "netlify/functions"
 
-# Security headers
+[build.environment]
+NODE_VERSION = "22"
+
 [[headers]]
 for = "/*"
 [headers.values]
-X-Frame-Options = "DENY"
-X-Content-Type-Options = "nosniff"
+Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 Referrer-Policy = "no-referrer-when-downgrade"
 Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "DENY"
 
-# CSP – uzupełnij <TUNNEL_HOST> albo usuń connect/frame-src jeśli nie używasz tunelu
 [[headers]]
 for = "/*"
 [headers.values]
 Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.clthub.com.pl https://<TUNNEL_HOST>; frame-src https://<TUNNEL_HOST>;"
-
-[context.production.environment]
-NODE_VERSION = "20"
