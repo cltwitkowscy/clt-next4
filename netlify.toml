@@ -18,4 +18,12 @@ X-Frame-Options = "DENY"
 [[headers]]
 for = "/*"
 [headers.values]
-Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.clthub.com.pl https://<TUNNEL_HOST>; frame-src https://<TUNNEL_HOST>;"
+# Usuń <TUNNEL_HOST> jeśli nie używasz tunelu
+Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://<TUNNEL_HOST>; frame-src https://<TUNNEL_HOST>;"
+
+# (opcjonalnie) ładne adresy do Functions w tym samym projekcie
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/:splat"
+status = 200
+f
