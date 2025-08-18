@@ -1,6 +1,7 @@
-﻿import {NextIntlClientProvider} from "next-intl";
-import {getLocale, getMessages} from "next-intl/server";
-import React from "react";
+﻿import '../globals.css';
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
+import React from 'react';
 
 export default async function LocaleLayout({children}:{children: React.ReactNode}) {
   const locale = await getLocale();
