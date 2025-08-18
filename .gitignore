@@ -60,3 +60,10 @@ build-archive.log
 /test-results/
 /playwright-report/
 /playwright/.cache/
+# --- keep i18n messages tracked ---
+!src/messages/
+!src/messages/*.json
+!.gitkeep
+
+# TypeScript build info
+tsconfig.tsbuildinfo

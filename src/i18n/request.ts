@@ -1,13 +1,12 @@
-﻿import {getRequestConfig} from 'next-intl/server';
+﻿import type {AbstractIntlMessages} from 'next-intl';
+import {getRequestConfig} from 'next-intl/server';
+import {routing} from './routing';
 
 export default getRequestConfig(async ({locale}) => {
-  let messages;
-  try {
-    messages = (await import(../locales/.json)).default;
-  } catch {
-    // Fallback na en, gdy np. brakuje pliku dla danego języka
-    messages = (await import('../locales/en.json')).default;
-  }
-  // ⬅️ ważne: zwracamy też locale
-  return { locale, messages };
+  const supported = routing.locales as readonly string[];
+  const loc = supported.includes(locale) ? locale : routing.defaultLocale;
+
+  const messages = (await import(../messages/.json)).default as AbstractIntlMessages;
+
+  return {locale: loc, messages};
 });
