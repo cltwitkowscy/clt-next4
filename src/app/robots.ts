@@ -1,13 +1,4 @@
-import type { MetadataRoute } from 'next';
-import { getBaseUrl } from '@/utils/Helpers';
-
+﻿import type { MetadataRoute } from "next";
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/dashboard',
-    },
-    sitemap: `${getBaseUrl()}/sitemap.xml`,
-  };
+  return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://www.clthub.com.pl/sitemap.xml" };
 }
