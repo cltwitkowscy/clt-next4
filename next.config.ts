@@ -14,4 +14,8 @@ const nextConfig: NextConfig = {
   },
 };
 
+<<<<<<< HEAD
 export default nextConfig;
+=======
+export default nextConfig;
+>>>>>>> 4cb0000 (fix(i18n): correct request.ts (no PS var expansion); add TS parser to ESLint; locale layout)
