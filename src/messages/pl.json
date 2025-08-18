@@ -1,1 +1,59 @@
-﻿{"common":{"siteName":"Moja Strona"}}
+﻿{
+  "RootLayout": { "site_name": "Moja Strona" },
+
+  "BaseTemplate": {
+    "description": "Opis szablonu bazowego",
+    "made_with": "Zrobione z ❤️"
+  },
+
+  "Portfolio": {
+    "meta_title": "Portfolio",
+    "meta_description": "Nasze realizacje",
+    "presentation": "Witamy w naszym portfolio.",
+    "portfolio_name": "{name}",
+    "sponsors_title": "Sponsorzy"
+  },
+
+  "PortfolioSlug": {
+    "meta_title": "Pozycja portfolio: {slug}",
+    "meta_description": "Szczegóły pozycji {slug}.",
+    "header": "Projekt {slug}",
+    "content": "To jest opis zastępczy.",
+    "code_review_powered_by": "Code review wspierane przez",
+    "error_reporting_powered_by": "Raportowanie błędów wspierane przez",
+    "coverage_powered_by": "Pokrycie kodu wspierane przez"
+  },
+
+  "Counter": {
+    "loading_counter": "Ładowanie licznika…",
+    "security_powered_by": "Bezpieczeństwo wspierane przez"
+  },
+
+  "CounterForm": {
+    "presentation": "Dostosuj licznik poniżej.",
+    "label_increment": "Przyrost",
+    "error_increment_range": "Przyrost musi być między 1 a 10.",
+    "button_increment": "Dodaj"
+  },
+
+  "CurrentCount": {
+    "count": "Aktualna wartość: {count}"
+  },
+
+  "Dashboard": {
+    "hello_message": "Cześć, {email}!",
+    "alternative_message": "Witamy w Twoim panelu."
+  },
+
+  "Nav": {
+    "home_link": "Start",
+    "about_link": "O nas",
+    "counter_link": "Licznik",
+    "portfolio_link": "Portfolio",
+    "sign_in_link": "Zaloguj",
+    "sign_up_link": "Zarejestruj",
+    "dashboard_link": "Panel",
+    "user_profile_link": "Profil",
+    "sign_out": "Wyloguj"
+  }
+}

@@ -1,1 +1,59 @@
-﻿{"common":{"siteName":"Meine Seite"}}
+﻿{
+  "RootLayout": { "site_name": "Meine Seite" },
+
+  "BaseTemplate": {
+    "description": "Beschreibung der Basisvorlage",
+    "made_with": "Gemacht mit ❤️"
+  },
+
+  "Portfolio": {
+    "meta_title": "Portfolio",
+    "meta_description": "Unsere Arbeiten",
+    "presentation": "Willkommen in unserem Portfolio.",
+    "portfolio_name": "{name}",
+    "sponsors_title": "Sponsoren"
+  },
+
+  "PortfolioSlug": {
+    "meta_title": "Portfolio: {slug}",
+    "meta_description": "Details zum Projekt {slug}.",
+    "header": "Projekt {slug}",
+    "content": "Dies ist eine Platzhalterbeschreibung.",
+    "code_review_powered_by": "Code-Review unterstützt von",
+    "error_reporting_powered_by": "Fehlermeldung unterstützt von",
+    "coverage_powered_by": "Coverage unterstützt von"
+  },
+
+  "Counter": {
+    "loading_counter": "Zähler wird geladen…",
+    "security_powered_by": "Sicherheit unterstützt von"
+  },
+
+  "CounterForm": {
+    "presentation": "Passe den Zähler unten an.",
+    "label_increment": "Inkrement",
+    "error_increment_range": "Inkrement muss zwischen 1 und 10 sein.",
+    "button_increment": "Hinzufügen"
+  },
+
+  "CurrentCount": {
+    "count": "Aktueller Stand: {count}"
+  },
+
+  "Dashboard": {
+    "hello_message": "Hallo, {email}!",
+    "alternative_message": "Willkommen in deinem Dashboard."
+  },
+
+  "Nav": {
+    "home_link": "Start",
+    "about_link": "Über uns",
+    "counter_link": "Zähler",
+    "portfolio_link": "Portfolio",
+    "sign_in_link": "Anmelden",
+    "sign_up_link": "Registrieren",
+    "dashboard_link": "Dashboard",
+    "user_profile_link": "Profil",
+    "sign_out": "Abmelden"
+  }
+}

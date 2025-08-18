@@ -1,1 +1,59 @@
-﻿{"common":{"siteName":"My Site"}}
+﻿{
+  "RootLayout": { "site_name": "My Site" },
+
+  "BaseTemplate": {
+    "description": "Base template description",
+    "made_with": "Made with ❤️"
+  },
+
+  "Portfolio": {
+    "meta_title": "Portfolio",
+    "meta_description": "Our selected work",
+    "presentation": "Welcome to our portfolio.",
+    "portfolio_name": "{name}",
+    "sponsors_title": "Sponsors"
+  },
+
+  "PortfolioSlug": {
+    "meta_title": "Portfolio item: {slug}",
+    "meta_description": "Details for portfolio item {slug}.",
+    "header": "Project {slug}",
+    "content": "This is a placeholder description.",
+    "code_review_powered_by": "Code review powered by",
+    "error_reporting_powered_by": "Error reporting powered by",
+    "coverage_powered_by": "Coverage powered by"
+  },
+
+  "Counter": {
+    "loading_counter": "Loading counter…",
+    "security_powered_by": "Security powered by"
+  },
+
+  "CounterForm": {
+    "presentation": "Adjust the counter below.",
+    "label_increment": "Increment",
+    "error_increment_range": "Increment must be between 1 and 10.",
+    "button_increment": "Add"
+  },
+
+  "CurrentCount": {
+    "count": "Current count: {count}"
+  },
+
+  "Dashboard": {
+    "hello_message": "Hello, {email}!",
+    "alternative_message": "Welcome to your dashboard."
+  },
+
+  "Nav": {
+    "home_link": "Home",
+    "about_link": "About",
+    "counter_link": "Counter",
+    "portfolio_link": "Portfolio",
+    "sign_in_link": "Sign in",
+    "sign_up_link": "Sign up",
+    "dashboard_link": "Dashboard",
+    "user_profile_link": "User profile",
+    "sign_out": "Sign out"
+  }
+}
