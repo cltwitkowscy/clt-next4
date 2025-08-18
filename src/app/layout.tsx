@@ -1,5 +1,5 @@
 ﻿import React from 'react'
-import '@/styles/globals.css'
+import '@/app/globals.css'
 
 export const metadata = {
   title: 'CLT Hub',
@@ -17,3 +17,4 @@ export default function RootLayout({
     </html>
   )
 }
+

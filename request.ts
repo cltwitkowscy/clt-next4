@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-﻿import {getRequestConfig} from "next-intl/server";
-
-export default getRequestConfig(async ({locale}) => {
-  const messages =
-    (await import(`../locales/${locale}.json`).catch(() => import("../locales/en.json"))).default;
-
-  return {locale, messages};
-=======
 // src/i18n/request.ts
 import type {AbstractIntlMessages} from 'next-intl';
 import {getRequestConfig} from 'next-intl/server';
@@ -24,5 +15,4 @@ export default getRequestConfig(async ({locale}) => {
   // const messages: AbstractIntlMessages = (await import(`../locales/${loc}.json`)).default;
 
   return {locale: loc, messages};
->>>>>>> 82cda11126ec4e63f19433198ec033cacf2bc9b2
 });

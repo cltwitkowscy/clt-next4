@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿import nextPlugin from "@next/eslint-plugin-next";
+=======
+import nextPlugin from "@next/eslint-plugin-next";
+>>>>>>> 82cda11126ec4e63f19433198ec033cacf2bc9b2
 import tsParser from "@typescript-eslint/parser";
 
 export default [
@@ -14,4 +18,8 @@ export default [
     plugins: { "@next/next": nextPlugin },
     rules: { ...nextPlugin.configs["core-web-vitals"].rules }
   }
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> 82cda11126ec4e63f19433198ec033cacf2bc9b2
