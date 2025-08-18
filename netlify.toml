@@ -1,10 +1,11 @@
 [build]
-command = "npm run build"
-publish = ".next"
-functions = "netlify/functions"
+  command = "npm run build"
+  publish = ".next"
+  functions = "netlify/functions"
 
 [build.environment]
-NODE_VERSION = "22"
+  NODE_VERSION = "22"
+  NETLIFY_NEXT_VERIFY_FORMS = "false"
 
 [[headers]]
 for = "/*"
@@ -21,7 +22,8 @@ for = "/*"
 Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src 'self';"
 
 [[redirects]]
-from = "/api/*"
-to = "/.netlify/functions/:splat"
-status = 200
-force = true
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
