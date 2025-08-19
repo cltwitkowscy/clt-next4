@@ -1,17 +1,38 @@
-import nextPlugin from "@next/eslint-plugin-next";
-import tsParser from "@typescript-eslint/parser";
+import js from '@eslint/js';
+import ts from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import globals from 'globals';
 
 export default [
-  { ignores: [".next/**", "node_modules/**", ".netlify/**", "netlify.toml", ".storybook/**"] },
+  { ignores: ['.next/', 'node_modules/', 'dist/', 'build/', '.netlify/', 'coverage/'] },
+
+  // JS ogólny
   {
-    files: ["**/*.{ts,tsx,js,jsx}"],
+    ...js.configs.recommended,
+    files: ['**/*.{js,cjs,mjs}'],
     languageOptions: {
-      parser: tsParser,
-      ecmaVersion: "latest",
-      sourceType: "module",
-      parserOptions: { ecmaFeatures: { jsx: true } }
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: { ...globals.node, ...globals.browser }
     },
-    plugins: { "@next/next": nextPlugin },
-    rules: { ...nextPlugin.configs["core-web-vitals"].rules }
+    rules: { 'no-console': 'off', 'no-undef': 'off' }
+  },
+
+  // TS/TSX
+  {
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      parser: ts,
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      ecmaFeatures: { jsx: true },
+      globals: { ...globals.node, ...globals.browser }
+    },
+    plugins: { '@typescript-eslint': tsPlugin, import: {} },
+    rules: {
+      'no-console': 'off',
+      'no-undef': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn'
+    }
   }
 ];
