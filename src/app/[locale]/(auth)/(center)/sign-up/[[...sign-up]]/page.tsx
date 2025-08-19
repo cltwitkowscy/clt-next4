@@ -1,3 +1,4 @@
+import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
 import { SignUp } from '@clerk/nextjs';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -9,10 +10,7 @@ type ISignUpPageProps = {
 
 export async function generateMetadata(props: ISignUpPageProps): Promise<Metadata> {
   const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'SignUp',
-  });
+  const t = await getTNS(locale, 'SignUp');
 
   return {
     title: t('meta_title'),

@@ -1,30 +1,10 @@
-import { currentUser } from '@clerk/nextjs/server';
-import { getTranslations } from 'next-intl/server';
-import { Sponsors } from './Sponsors';
+﻿import { ensureLocale, getTNS } from "@/i18n/compat";
 
-export const Hello = async () => {
-  const t = await getTranslations('Dashboard');
-  const user = await currentUser();
+type Props = { locale?: string };
 
-  return (
-    <>
-      <p>
-        {`👋 `}
-        {t('hello_message', { email: user?.primaryEmailAddress?.emailAddress ?? '' })}
-      </p>
-      <p>
-        {t.rich('alternative_message', {
-          url: () => (
-            <a
-              className="text-blue-700 hover:border-b-2 hover:border-blue-700"
-              href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
-            >
-              Next.js Boilerplate SaaS
-            </a>
-          ),
-        })}
-      </p>
-      <Sponsors />
-    </>
-  );
-};
+export default async function Hello({ locale: incoming }: Props) {
+  const locale = await ensureLocale(incoming);
+  // Historycznie ten komponent używał namespace "Dashboard"
+  const t = await getTNS(locale, "Dashboard");
+  return <p>{t("hello_message")}</p>;
+}

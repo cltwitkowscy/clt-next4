@@ -1,3 +1,4 @@
+import { getTNS } from '@/i18n/compat';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 import { DemoBanner } from '@/components/DemoBanner';
@@ -10,10 +11,7 @@ export default async function Layout(props: {
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'RootLayout',
-  });
+  const t = await getTNS(locale, 'RootLayout');
 
   return (
     <>

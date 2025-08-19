@@ -1,3 +1,4 @@
+import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
@@ -20,10 +21,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata(props: IPortfolioDetailProps): Promise<Metadata> {
   const { locale, slug } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'PortfolioSlug',
-  });
+  const t = await getTNS(locale, 'PortfolioSlug');
 
   return {
     title: t('meta_title', { slug }),
@@ -34,10 +32,7 @@ export async function generateMetadata(props: IPortfolioDetailProps): Promise<Me
 export default async function PortfolioDetail(props: IPortfolioDetailProps) {
   const { locale, slug } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'PortfolioSlug',
-  });
+  const t = await getTNS(locale, 'PortfolioSlug');
 
   return (
     <>

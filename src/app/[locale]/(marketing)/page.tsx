@@ -1,3 +1,4 @@
+import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Sponsors } from '@/components/Sponsors';
@@ -8,10 +9,7 @@ type IIndexProps = {
 
 export async function generateMetadata(props: IIndexProps): Promise<Metadata> {
   const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'Index',
-  });
+  const t = await getTNS(locale, 'Index');
 
   return {
     title: t('meta_title'),
@@ -22,10 +20,7 @@ export async function generateMetadata(props: IIndexProps): Promise<Metadata> {
 export default async function Index(props: IIndexProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'Index',
-  });
+  const t = await getTNS(locale, 'Index');
 
   return (
     <>

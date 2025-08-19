@@ -1,26 +1,16 @@
-import { eq } from 'drizzle-orm';
-import { getTranslations } from 'next-intl/server';
-import { headers } from 'next/headers';
-import { db } from '@/libs/DB';
-import { logger } from '@/libs/Logger';
-import { counterSchema } from '@/models/Schema';
+﻿import { ensureLocale, getTNS } from "@/i18n/compat";
 
-export const CurrentCount = async () => {
-  const t = await getTranslations('CurrentCount');
+type Props = { locale?: string };
 
-  // `x-e2e-random-id` is used for end-to-end testing to make isolated requests
-  // The default value is 0 when there is no `x-e2e-random-id` header
-  const id = Number((await headers()).get('x-e2e-random-id')) ?? 0;
-  const result = await db.query.counterSchema.findMany({
-    where: eq(counterSchema.id, id),
-  });
-  const count = result[0]?.count ?? 0;
-
-  logger.info('Counter fetched successfully');
+export default async function CurrentCount({ locale: incoming }: Props) {
+  const locale = await ensureLocale(incoming);
+  const t = await getTNS(locale, "CurrentCount");
+  const count = 0;
 
   return (
-    <div>
-      {t('count', { count })}
-    </div>
+    <section>
+      <h2>{t("title")}</h2>
+      <p>{t("count", { num: count })}</p>
+    </section>
   );
-};
+}

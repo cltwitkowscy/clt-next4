@@ -1,3 +1,4 @@
+import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
@@ -8,10 +9,7 @@ type IAboutProps = {
 
 export async function generateMetadata(props: IAboutProps): Promise<Metadata> {
   const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'About',
-  });
+  const t = await getTNS(locale, 'About');
 
   return {
     title: t('meta_title'),
@@ -22,10 +20,7 @@ export async function generateMetadata(props: IAboutProps): Promise<Metadata> {
 export default async function About(props: IAboutProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'About',
-  });
+  const t = await getTNS(locale, 'About');
 
   return (
     <>

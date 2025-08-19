@@ -1,3 +1,4 @@
+import { getTNS } from '@/i18n/compat';
 import { SignOutButton } from '@clerk/nextjs';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
@@ -10,10 +11,7 @@ export default async function DashboardLayout(props: {
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'DashboardLayout',
-  });
+  const t = await getTNS(locale, 'DashboardLayout');
 
   return (
     <BaseTemplate
