@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SignIn } from '@clerk/nextjs';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { createTranslator, getMessages, setRequestLocale } from 'next-intl/server';
 import { getI18nPath } from '@/utils/Helpers';
 
 type ISignInPageProps = {
@@ -8,11 +8,9 @@ type ISignInPageProps = {
 };
 
 export async function generateMetadata(props: ISignInPageProps): Promise<Metadata> {
-  const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'SignIn',
-  });
+  const { locale } = props.params;
+  const messages = await getMessages({ locale });
+  const t = createTranslator({ locale, messages, namespace: 'SignIn' });
 
   return {
     title: t('meta_title'),
@@ -21,7 +19,7 @@ export async function generateMetadata(props: ISignInPageProps): Promise<Metadat
 }
 
 export default async function SignInPage(props: ISignInPageProps) {
-  const { locale } = await props.params;
+  const { locale } = props.params;
   setRequestLocale(locale);
 
   return (

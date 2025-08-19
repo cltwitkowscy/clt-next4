@@ -1,4 +1,4 @@
-/* eslint-disable react-dom/no-unsafe-target-blank */
+/* eslint-disable react/jsx-no-target-blank */
 import Image from 'next/image';
 
 export const Sponsors = () => (
@@ -149,3 +149,4 @@ export const Sponsors = () => (
     </tbody>
   </table>
 );
+
