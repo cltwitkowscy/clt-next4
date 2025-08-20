@@ -1,6 +1,6 @@
-import { getTNS } from '@/i18n/compat';
+﻿import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
 type IAboutProps = {
@@ -48,3 +48,4 @@ export default async function About(props: IAboutProps) {
     </>
   );
 };
+

@@ -1,16 +1,7 @@
-﻿import { ensureLocale, getTNS } from "@/i18n/compat";
+﻿"use client";
 
-type Props = { locale?: string };
+type Props = { value: number };
 
-export default async function CurrentCount({ locale: incoming }: Props) {
-  const locale = await ensureLocale(incoming);
-  const t = await getTNS(locale, "CurrentCount");
-  const count = 0;
-
-  return (
-    <section>
-      <h2>{t("title")}</h2>
-      <p>{t("count", { num: count })}</p>
-    </section>
-  );
+export default function CurrentCount({ value }: Props) {
+  return <p>Current: {value}</p>;
 }

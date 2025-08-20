@@ -1,5 +1,5 @@
-import { getTNS } from '@/i18n/compat';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+﻿import { getTNS } from '@/i18n/compat';
+import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 import { DemoBanner } from '@/components/DemoBanner';
 import { LocaleSwitcher } from '@/components/LocaleSwitcher';
@@ -92,3 +92,4 @@ export default async function Layout(props: {
     </>
   );
 }
+

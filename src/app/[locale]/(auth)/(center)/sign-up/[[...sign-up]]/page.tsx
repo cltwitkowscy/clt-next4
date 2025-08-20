@@ -1,7 +1,7 @@
-import { getTNS } from '@/i18n/compat';
+﻿import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
 import { SignUp } from '@clerk/nextjs';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { getI18nPath } from '@/utils/Helpers';
 
 type ISignUpPageProps = {
@@ -26,3 +26,4 @@ export default async function SignUpPage(props: ISignUpPageProps) {
     <SignUp path={getI18nPath('/sign-up', locale)} />
   );
 };
+

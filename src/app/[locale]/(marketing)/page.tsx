@@ -1,6 +1,6 @@
-import { getTNS } from '@/i18n/compat';
+﻿import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { Sponsors } from '@/components/Sponsors';
 
 type IIndexProps = {
@@ -43,17 +43,17 @@ export default async function Index(props: IIndexProps) {
         Next.js Boilerplate is a developer-friendly starter code for Next.js projects, built with Tailwind CSS and TypeScript.
         {' '}
         <span role="img" aria-label="zap">
-          ⚡️
+          âšˇď¸Ź
         </span>
         {' '}
         Designed with developer experience in mind, it includes:
       </p>
       <ul className="mt-3 text-base">
-        <li>🚀 Next.js with App Router support</li>
-        <li>🔥 TypeScript for type checking</li>
-        <li>💎 Tailwind CSS integration</li>
+        <li>đźš€ Next.js with App Router support</li>
+        <li>đź”Ą TypeScript for type checking</li>
+        <li>đź’Ž Tailwind CSS integration</li>
         <li>
-          🔒 Authentication with
+          đź”’ Authentication with
           {' '}
           <a
             className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
@@ -64,9 +64,9 @@ export default async function Index(props: IIndexProps) {
           {' '}
           (includes passwordless, social, and multi-factor auth)
         </li>
-        <li>📦 ORM with DrizzleORM (PostgreSQL, SQLite, MySQL support)</li>
+        <li>đź“¦ ORM with DrizzleORM (PostgreSQL, SQLite, MySQL support)</li>
         <li>
-          💽 Dev database with PGlite and production with
+          đź’˝ Dev database with PGlite and production with
           {' '}
           <a
             className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
@@ -76,7 +76,7 @@ export default async function Index(props: IIndexProps) {
           </a>
         </li>
         <li>
-          🌐 Multi-language support (i18n) with next-intl and
+          đźŚ Multi-language support (i18n) with next-intl and
           {' '}
           <a
             className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
@@ -85,13 +85,13 @@ export default async function Index(props: IIndexProps) {
             Crowdin
           </a>
         </li>
-        <li>🔴 Form handling (React Hook Form) and validation (Zod)</li>
-        <li>📏 Linting and formatting (ESLint, Prettier)</li>
-        <li>🦊 Git hooks and commit linting (Husky, Commitlint)</li>
-        <li>🦺 Testing suite (Vitest, React Testing Library, Playwright)</li>
-        <li>🎉 Storybook for UI development</li>
+        <li>đź”´ Form handling (React Hook Form) and validation (Zod)</li>
+        <li>đź“Ź Linting and formatting (ESLint, Prettier)</li>
+        <li>đź¦Š Git hooks and commit linting (Husky, Commitlint)</li>
+        <li>đź¦ş Testing suite (Vitest, React Testing Library, Playwright)</li>
+        <li>đźŽ‰ Storybook for UI development</li>
         <li>
-          🐰 AI-powered code reviews with
+          đź° AI-powered code reviews with
           {' '}
           <a
             className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
@@ -101,7 +101,7 @@ export default async function Index(props: IIndexProps) {
           </a>
         </li>
         <li>
-          🚨 Error monitoring (
+          đźš¨ Error monitoring (
           <a
             className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
             href="https://sentry.io/for/nextjs/?utm_source=github&amp;utm_medium=paid-community&amp;utm_campaign=general-fy25q1-nextjs&amp;utm_content=github-banner-nextjsboilerplate-logo"
@@ -110,9 +110,9 @@ export default async function Index(props: IIndexProps) {
           </a>
           ) and logging (LogTape, an alternative to Pino.js)
         </li>
-        <li>🖥️ Monitoring as Code (Checkly)</li>
+        <li>đź–Ąď¸Ź Monitoring as Code (Checkly)</li>
         <li>
-          🔐 Security and bot protection (
+          đź” Security and bot protection (
           <a
             className="font-bold text-blue-700 hover:border-b-2 hover:border-blue-700"
             href="https://launch.arcjet.com/Q6eLbRE"
@@ -121,8 +121,8 @@ export default async function Index(props: IIndexProps) {
           </a>
           )
         </li>
-        <li>🤖 SEO optimization (metadata, JSON-LD, Open Graph tags)</li>
-        <li>⚙️ Development tools (VSCode config, bundler analyzer, changelog generation)</li>
+        <li>đź¤– SEO optimization (metadata, JSON-LD, Open Graph tags)</li>
+        <li>âš™ď¸Ź Development tools (VSCode config, bundler analyzer, changelog generation)</li>
       </ul>
       <p className="text-base">
         Our sponsors&apos; exceptional support has made this project possible.
@@ -134,3 +134,4 @@ export default async function Index(props: IIndexProps) {
     </>
   );
 };
+

@@ -1,7 +1,7 @@
-import { getTNS } from '@/i18n/compat';
+﻿import { getTNS } from '@/i18n/compat';
 import type { Metadata } from 'next';
 import { UserProfile } from '@clerk/nextjs';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { getI18nPath } from '@/utils/Helpers';
 
 type IUserProfilePageProps = {
@@ -29,3 +29,4 @@ export default async function UserProfilePage(props: IUserProfilePageProps) {
     </div>
   );
 };
+
