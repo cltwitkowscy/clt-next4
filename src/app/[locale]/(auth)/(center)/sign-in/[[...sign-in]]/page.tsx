@@ -3,15 +3,14 @@ import { SignIn } from "@clerk/nextjs";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getI18nPath } from "@/utils/Helpers";
 
-// NIE używamy PageProps/generics. Prosty, jawny typ:
-type RouteParams = { params: { locale: string } };
+// Next oczekuje PageProps z params: Promise<any>, więc używamy Promise tu:
+type RouteParams = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata(
   { params }: RouteParams
 ): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "SignIn" });
-
   return {
     title: t("meta_title"),
     description: t("meta_description"),
@@ -19,7 +18,7 @@ export async function generateMetadata(
 }
 
 export default async function SignInPage({ params }: RouteParams) {
-  const { locale } = params;
+  const { locale } = await params;
   setRequestLocale(locale);
   return <SignIn path={getI18nPath("/sign-in", locale)} />;
 }
