@@ -73,7 +73,7 @@
   },
 
   // Files to include/exclude from the project
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.e2e.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.e2e.ts", "netlify/functions", ".vercel"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.mts"]
 }
 

@@ -3,20 +3,24 @@ import { SignIn } from "@clerk/nextjs";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getI18nPath } from "@/utils/Helpers";
 
-// Uwaga: NIE typujemy parametru funkcji Page ani generateMetadata,
-// żeby nie ścierać się z wewnętrznym Next.js PageProps (który u Ciebie wymaga Promise).
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  // "await" zadziała i dla Promise, i dla zwykłego obiektu
-  const { locale } = await params;
-  const t = await getTranslations({ locale }); // <— bez namespace w obiekcie opcji
+// Prosty jawny typ – bez PageProps i bez Promise:
+type RouteParams = { params: { locale: string } };
+
+export async function generateMetadata(
+  { params: { locale } }: RouteParams
+): Promise<Metadata> {
+  // Używamy getTranslations({ locale }) BEZ namespace.
+  const t = await getTranslations({ locale });
   return {
+    // Klucze z prefiksem "SignIn." zamiast namespace.
     title: t("SignIn.meta_title"),
-    description: t("SignIn.meta_description")
+    description: t("SignIn.meta_description"),
   };
 }
 
-export default async function SignInPage({ params }: any) {
-  const { locale } = await params;
+export default async function SignInPage(
+  { params: { locale } }: RouteParams
+) {
   setRequestLocale(locale);
   return <SignIn path={getI18nPath("/sign-in", locale)} />;
 }
