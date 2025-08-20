@@ -3,15 +3,16 @@ import { SignIn } from "@clerk/nextjs";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getI18nPath } from "@/utils/Helpers";
 
-// Next/.next/types oczekuje params jako Promise<...>
+// Next 15 (.next/types) zwykle generuje Promise w params — zostajemy przy tym
 type RouteParams = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata(
-  { params }: RouteParams
-): Promise<Metadata> {
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { locale } = await params;
-  // WAŻNE: bez namespace w obiekcie; klucze z prefiksem "SignIn."
-  const t = await getTranslations({ locale });
+
+  // WAŻNE: nie podajemy namespace w opcjach (bo przeciążenia na to nie pozwalają),
+  // a typ tłumacza luzujemy castem, żeby akceptował "SignIn.*".
+  const tx = await getTranslations({ locale });
+  const t = tx as unknown as (key: string, values?: Record<string, unknown>) => string;
 
   return {
     title: t("SignIn.meta_title"),
