@@ -1,9 +1,11 @@
-﻿import type { Metadata, PageProps } from 'next';
+﻿import type { Metadata } from 'next';
 import { SignIn } from '@clerk/nextjs';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { getI18nPath } from '@/utils/Helpers';
 
-export async function generateMetadata({ params }: PageProps<{ locale: string }>): Promise<Metadata> {
+type Props = { params: { locale: string } };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const t = await getTranslations({ locale, namespace: 'SignIn' });
   return {
@@ -12,7 +14,7 @@ export async function generateMetadata({ params }: PageProps<{ locale: string }>
   };
 }
 
-export default async function SignInPage({ params }: PageProps<{ locale: string }>) {
+export default async function SignInPage({ params }: Props) {
   const { locale } = params;
   setRequestLocale(locale);
   return <SignIn path={getI18nPath('/sign-in', locale)} />;
