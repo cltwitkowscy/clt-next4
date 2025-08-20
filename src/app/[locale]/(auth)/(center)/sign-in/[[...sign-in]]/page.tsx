@@ -3,20 +3,16 @@ import { SignIn } from '@clerk/nextjs';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { getI18nPath } from '@/utils/Helpers';
 
-type ISignInPageProps = {
-  params: { locale: string };
-};
-
-export async function generateMetadata({ params }: ISignInPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const { locale } = params;
-  const t = await getTranslations({ locale });
+  const t = await getTranslations({ locale, namespace: 'SignIn' });
   return {
-    title: t('SignIn.meta_title'),
-    description: t('SignIn.meta_description')
+    title: t('meta_title'),
+    description: t('meta_description')
   };
 }
 
-export default async function SignInPage({ params }: ISignInPageProps) {
+export default async function SignInPage({ params }: { params: { locale: string } }) {
   const { locale } = params;
   setRequestLocale(locale);
   return <SignIn path={getI18nPath('/sign-in', locale)} />;
