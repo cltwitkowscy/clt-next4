@@ -19,7 +19,8 @@ export async function generateMetadata(props: {
 }
 
 export default function Counter() {
-  const t = useTranslations('Counter');
+  const tx = useTranslations();
+const t = ((k: string, v?: Record<string, unknown>) => tx("Counter." + k, v)) as (k: string, v?: Record<string, unknown>) => string;
 
   return (
     <>
@@ -27,7 +28,7 @@ export default function Counter() {
 
       <div className="mt-3">
         <Suspense fallback={<p>{t('loading_counter')}</p>}>
-          <CurrentCount />
+          <CurrentCount value={0} />
         </Suspense>
       </div>
 
