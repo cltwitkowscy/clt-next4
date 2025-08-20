@@ -1,10 +1,10 @@
-[build]
+﻿[build]
   command = "npm run build"
   publish = ".next"
   functions = "netlify/functions"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "20"
   NETLIFY_NEXT_VERIFY_FORMS = "false"
 
 [[headers]]
@@ -26,3 +26,4 @@ Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; scri
   to = "/.netlify/functions/:splat"
   status = 200
   force = true
+
