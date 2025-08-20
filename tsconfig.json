@@ -1,4 +1,4 @@
-/* eslint-disable jsonc/sort-keys */
+﻿/* eslint-disable jsonc/sort-keys */
 {
   "compilerOptions": {
     // ======================================================================
@@ -76,3 +76,4 @@
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.e2e.ts"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.mts"]
 }
+
