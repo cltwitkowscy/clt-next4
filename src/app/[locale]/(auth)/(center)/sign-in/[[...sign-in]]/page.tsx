@@ -3,20 +3,23 @@ import { SignIn } from "@clerk/nextjs";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getI18nPath } from "@/utils/Helpers";
 
-// Jawne, proste propsy (bez PageProps i bez Promise w params)
-type Props = { params: { locale: string } };
+// Prosty typ props – bez PageProps i bez Promise w params
+type RouteParams = { params: { locale: string } };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: RouteParams
+): Promise<Metadata> {
   const { locale } = params;
-  setRequestLocale(locale);                 // ustaw kontekst lokalizacji
-  const t = await getTranslations("SignIn"); // poprawny overload z namespace (bez obiektu)
+  // v3: nie podajemy namespace w opcjach – używamy pełnych kluczy w t()
+  const t = await getTranslations({ locale });
+
   return {
-    title: t("meta_title"),
-    description: t("meta_description")
+    title: t("SignIn.meta_title"),
+    description: t("SignIn.meta_description"),
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function SignInPage({ params }: RouteParams) {
   const { locale } = params;
   setRequestLocale(locale);
   return <SignIn path={getI18nPath("/sign-in", locale)} />;

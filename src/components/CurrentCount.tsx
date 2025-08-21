@@ -1,4 +1,8 @@
 ﻿"use client";
-export default function CurrentCount({ value }: { value: number }) {
+
+type Props = { value: number };
+
+export function CurrentCount({ value }: Props) {
   return <p>Current: {value}</p>;
 }
+export default CurrentCount;

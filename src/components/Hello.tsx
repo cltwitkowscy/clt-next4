@@ -1,4 +1,8 @@
 ﻿"use client";
-export default function Hello({ name = "World" }: { name?: string }) {
+
+type Props = { name?: string };
+
+export function Hello({ name = "World" }: Props) {
   return <div>Hello {name}</div>;
 }
+export default Hello;

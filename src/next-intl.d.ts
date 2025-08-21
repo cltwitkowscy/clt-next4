@@ -1,6 +1,6 @@
-﻿import "use-intl";
+export {};
 
-declare module "use-intl" {
+declare global {
   interface IntlMessages {
     [key: string]: any;
   }

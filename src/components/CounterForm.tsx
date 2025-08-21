@@ -1,64 +1,40 @@
-'use client';
+﻿"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { CounterValidation } from '@/validations/CounterValidation';
+import { useState } from "react";
+import { useTranslations } from "next-intl";
 
-export const CounterForm = () => {
-  const t = useTranslations('CounterForm');
-  const form = useForm({
-    resolver: zodResolver(CounterValidation),
-    defaultValues: {
-      increment: 0,
-    },
-  });
-  const router = useRouter();
+export default function CounterForm() {
+  const t = useTranslations();
+  const [value, setValue] = useState(0);
+  const [inc, setInc] = useState(1);
 
-  const handleIncrement = form.handleSubmit(async (data) => {
-    await fetch(`/api/counter`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    form.reset();
-    router.refresh();
-  });
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (inc < 1 || inc > 1000) {
+      alert(t("CounterForm.error_increment_range"));
+      return;
+    }
+    setValue((v) => v + inc);
+  };
 
   return (
-    <form onSubmit={handleIncrement}>
-      <p>{t('presentation')}</p>
-      <div>
-        <label className="text-sm font-bold text-gray-700" htmlFor="increment">
-          {t('label_increment')}
-          <input
-            id="increment"
-            type="number"
-            className="ml-2 w-32 appearance-none rounded-sm border border-gray-200 px-2 py-1 text-sm leading-tight text-gray-700 focus:ring-3 focus:ring-blue-300/50 focus:outline-hidden"
-            {...form.register('increment')}
-          />
-        </label>
+    <form onSubmit={onSubmit}>
+      <p>{t("CounterForm.presentation")}</p>
 
-        {form.formState.errors.increment && (
-          <div className="my-2 text-xs text-red-500 italic">
-            {t('error_increment_range')}
-          </div>
-        )}
-      </div>
+      <label>
+        {t("CounterForm.label_increment")}
+        <input
+          type="number"
+          value={inc}
+          onChange={(e) => setInc(parseInt(e.target.value || "0", 10))}
+          min={1}
+          max={1000}
+        />
+      </label>
 
-      <div className="mt-2">
-        <button
-          className="rounded-sm bg-blue-500 px-5 py-1 font-bold text-white hover:bg-blue-600 focus:ring-3 focus:ring-blue-300/50 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50"
-          type="submit"
-          disabled={form.formState.isSubmitting}
-        >
-          {t('button_increment')}
-        </button>
-      </div>
+      <button type="submit">{t("CounterForm.button_increment")}</button>
+
+      <p>Value: {value}</p>
     </form>
   );
-};
+}
