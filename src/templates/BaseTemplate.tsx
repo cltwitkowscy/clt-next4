@@ -1,23 +1,15 @@
-﻿"use client";
+﻿import React from "react";
+import {useTranslations} from "next-intl";
 
-import { PropsWithChildren } from "react";
-import { useTranslations } from "next-intl";
-
-type Props = PropsWithChildren<{ title?: string; subtitle?: string }>;
-
-export default function BaseTemplate({ title, subtitle, children }: Props) {
-  const t = useTranslations();
-
+export default function BaseTemplate({children}: {children: React.ReactNode}) {
+  const t = useTranslations("BaseTemplate");
   return (
-    <section>
-      <h1 className="text-2xl">{title ?? "Demo"}</h1>
-      <h2 className="text-xl">{subtitle ?? t("BaseTemplate.description")}</h2>
-      <div>{children}</div>
+    <div className="space-y-4">
+      <h2 className="text-xl">{t("description")}</h2>
+      {children}
       <footer>
-        {t.rich("BaseTemplate.made_with", {
-          strong: (chunk) => <strong>{chunk}</strong>,
-        })}
+        {t.rich("made_with", { strong: (chunks) => <strong>{chunks}</strong> })}
       </footer>
-    </section>
+    </div>
   );
 }

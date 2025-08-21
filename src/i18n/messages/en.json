@@ -1,0 +1,11 @@
+﻿{
+  "SignIn": {"meta_title": "Sign in","meta_description": "Access your account"},
+  "Counter": {"loading_counter": "Loading counter…","security_powered_by": "Security powered by"},
+  "CounterForm": {
+    "presentation": "Demo counter",
+    "label_increment": "Increment",
+    "error_increment_range": "Increment must be between 1 and 10",
+    "button_increment": "Increase"
+  },
+  "BaseTemplate": {"description": "Base template","made_with": "Made with <strong>love</strong>."}
+}

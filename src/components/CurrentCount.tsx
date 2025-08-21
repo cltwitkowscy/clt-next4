@@ -1,8 +1,7 @@
 ﻿"use client";
-
-type Props = { value: number };
-
-export function CurrentCount({ value }: Props) {
+import React from "react";
+export type CurrentCountProps = {value: number};
+export function CurrentCount({value}: CurrentCountProps) {
   return <p>Current: {value}</p>;
 }
 export default CurrentCount;

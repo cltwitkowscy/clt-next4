@@ -1,16 +1,15 @@
-﻿import { Suspense } from "react";
-import CurrentCount from "@/components/CurrentCount";
-import { getTranslations } from "next-intl/server";
+﻿import {Suspense} from "react";
+import {useTranslations} from "next-intl";
+import {CurrentCount} from "@/components/CurrentCount";
 
-export default async function Counter() {
-  const t = await getTranslations();
-
+export default function Counter() {
+  const t = useTranslations("Counter");
   return (
     <>
-      <Suspense fallback={<p>{t("Counter.loading_counter")}</p>}>
+      <Suspense fallback={<p>{t("loading_counter")}</p>}>
         <CurrentCount value={0} />
       </Suspense>
-      <p>{t("Counter.security_powered_by")} Next-Intl</p>
+      <p>{t("security_powered_by")} Next.js</p>
     </>
   );
 }

@@ -1,8 +1,7 @@
 ﻿"use client";
-
-type Props = { name?: string };
-
-export function Hello({ name = "World" }: Props) {
+import React from "react";
+export type HelloProps = {name?: string};
+export function Hello({name = "World"}: HelloProps) {
   return <div>Hello {name}</div>;
 }
 export default Hello;

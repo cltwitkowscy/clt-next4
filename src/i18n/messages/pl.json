@@ -1,0 +1,11 @@
+﻿{
+  "SignIn": {"meta_title": "Logowanie","meta_description": "Dostęp do Twojego konta"},
+  "Counter": {"loading_counter": "Ładowanie licznika…","security_powered_by": "Bezpieczeństwo napędzane przez"},
+  "CounterForm": {
+    "presentation": "Przykładowy licznik",
+    "label_increment": "Przyrost",
+    "error_increment_range": "Przyrost musi być między 1 a 10",
+    "button_increment": "Zwiększ"
+  },
+  "BaseTemplate": {"description": "Szablon bazowy","made_with": "Zrobione z <strong>miłością</strong>."}
+}

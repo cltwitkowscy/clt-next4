@@ -1,26 +1,19 @@
-﻿import type { Metadata } from "next";
-import { SignIn } from "@clerk/nextjs";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getI18nPath } from "@/utils/Helpers";
+﻿import type {Metadata} from 'next';
+import {SignIn} from '@clerk/nextjs';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {getI18nPath} from '@/utils/Helpers';
 
-// Prosty typ props – bez PageProps i bez Promise w params
-type RouteParams = { params: { locale: string } };
+type Props = {params: {locale: string}};
 
-export async function generateMetadata(
-  { params }: RouteParams
-): Promise<Metadata> {
-  const { locale } = params;
-  // v3: nie podajemy namespace w opcjach – używamy pełnych kluczy w t()
-  const t = await getTranslations({ locale });
-
+export async function generateMetadata({params: {locale}}: Props): Promise<Metadata> {
+  const t = await getTranslations('SignIn', {locale});
   return {
-    title: t("SignIn.meta_title"),
-    description: t("SignIn.meta_description"),
+    title: t('meta_title'),
+    description: t('meta_description')
   };
 }
 
-export default async function SignInPage({ params }: RouteParams) {
-  const { locale } = params;
+export default async function Page({params: {locale}}: Props) {
   setRequestLocale(locale);
-  return <SignIn path={getI18nPath("/sign-in", locale)} />;
+  return <SignIn path={getI18nPath('/sign-in', locale)} />;
 }
