@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import {useTranslations} from "next-intl";
 
-export default function BaseTemplate({children}: {children: React.ReactNode}) {
+import BaseTemplate from '@/templates/BaseTemplate';
   const t = useTranslations("BaseTemplate");
   return (
     <div className="space-y-4">
